@@ -30,7 +30,11 @@ string ListingLineObject::GrabFieldFromLine(string line, int lineLen, int startP
 
 
 // SetFlags
-// Set the addressing mode and instruction flags based on the 
+// Set the addressing mode and instruction flags based on whether the
+// original listing line has the corresponding symbol in the appropriate
+// column
+// Inputs and Outputs: none
+// Sets the flags internal to the object
 void ListingLineObject::SetFlags()
 {
 
