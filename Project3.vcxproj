@@ -138,7 +138,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Linker_Editor.cpp" />
+    <ClCompile Include="ListingLineObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ListingLineObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
