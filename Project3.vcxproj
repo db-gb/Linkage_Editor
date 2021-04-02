@@ -139,10 +139,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Linker_Editor.cpp" />
-    <ClCompile Include="ListingLineObject.cpp" />
+    <ClCompile Include="ListingFileClass.cpp" />
+    <ClCompile Include="ListingLineClass.cpp" />
+    <ClCompile Include="StringHexFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ListingLineObject.h" />
+    <ClInclude Include="ListingFileClass.h" />
+    <ClInclude Include="ListingLineClass.h" />
+    <ClInclude Include="StringHexFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
