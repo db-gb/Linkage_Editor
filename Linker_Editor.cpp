@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-#include "StringHexFunctions.h"
+#include "NumericalStringFunctions.h"
 #include "ListingFileClass.h"
 #include "ListingLineClass.h"
 
@@ -24,20 +24,29 @@ using namespace std;
 
 int main()
 {
-	//ListingFileClass listingFile;
 	string line;
 	int lineCnt = 0;
 
-	UnitTestHexStringToNumConverter();
+
  
 
 	fstream fileStream;
-	fileStream.open("P2sampleAdder.lis");
+	fileStream.open("P2sampleWriter.lis");
 
 	ListingFileClass listingFile(&fileStream);
 
+	fileStream.close();
 
+	fileStream.open("P2sampleAdder.lis");
 
+	ListingFileClass listingFile2(&fileStream);
+
+	fileStream.close();
+
+	// Unit Testing
+	//UnitTestHexStringToNumConverter();
+	//UnitTestDecStringToNumConverter();
+	//UnitTestIsEmptyString();
 }
 
 

@@ -3,6 +3,7 @@
 
 
 
+
 // ParseListingLine
 // Method used to parse a listing file line into its various components
 // based on the SIC/XE Assembler listing file format.
@@ -110,5 +111,56 @@ void ListingLineClass::CalcMachInstrLen()
 {
 	//cout << "Machine Instr len: " << MachInstr.length() << "\n";
 	MachInstrLen = MachInstr.length() / 2;
+
+}
+
+
+
+
+// Update Program Counter
+// This function calculates what the program counter value should be while the 
+// program is executing the current line. For a normal instruction, the number
+// of bytes of the machine instruction is added to Loc. For RESB and RESW, we 
+// need to add the number of bytes that are being reserved.
+void ListingLineClass::CalcProgramCounter()
+{
+	string resw = " RESW  ";
+	string resb = " RESB  ";
+	string word = " WORD  ";
+	string byte = " BYTE  ";
+	unsigned int oper = 0;
+	ProgCounter = LocNum;
+
+	// If has machine instruct, add that length to PC
+	if (MachInstrLen > 0)
+	{
+		ProgCounter += MachInstrLen;
+	}
+	// Reserve as many words as operand specifies (in decimal)
+	else if (Opcode.compare(resw) == 0)
+	{
+		oper = ConvertDecStringToNumber(Operand);
+		ProgCounter += (oper * 3);			// 1 word = 3 bytes
+	}
+	// Reserve as many bytes as operand specifies (in decimal)
+	else if (Opcode.compare(resb) == 0)
+	{
+		oper = ConvertDecStringToNumber(Operand);
+		ProgCounter += oper;
+	}
+
+	// These should have a machine instr, but the listing files given do not
+	else if (Opcode.compare(word) == 0)
+	{
+		ProgCounter += 3;
+	}
+	else if (Opcode.compare(byte) == 0)
+	{
+		ProgCounter += 1;
+	}
+
+
+	/* Every example in the book shows a machine instr associated with WORD and BYTE,
+	   however, the listing files given as examples do not, so we manually add to PC */
 
 }

@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 
+#include "NumericalStringFunctions.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ private:
 	void ParseListingLine(string line);
 	string GrabFieldFromLine(string line, int lineLen, int startPos, int length);
 	void CalcMachInstrLen();
+	void CalcProgramCounter();
 	void SetFlags();
 
 public:
@@ -38,15 +40,21 @@ public:
 	bool Indirect;
 	bool Literal;
 	unsigned int ProgCounter;
+	unsigned int LocNum;
 	int MachInstrLen; 
 
 	ListingLineClass(string line)
 	{
 		MachInstrLen = 0;
+		ProgCounter = 0;
 		ParseListingLine(line);
 		SetFlags();
 		CalcMachInstrLen();
+		LocNum = ConvertHexStringToNumber(Loc);
+		CalcProgramCounter();
 
+
+		// Remove when done//////////////////////////////////////
 		if (Extended)
 			cout << "Extended\n";
 		if (Immediate)
@@ -55,6 +63,10 @@ public:
 			cout << "Indirect\n";
 		if (Literal)
 			cout << "Literal\n";
+
+		cout << "PC: " << hex << ProgCounter << "\n";
+		//////////////////////////////////////////////////////////
+
 	}
 
 
