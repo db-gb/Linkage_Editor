@@ -13,14 +13,19 @@ class ListingFileClass
 {
 private:
 	unsigned int StartAddr;
-	unsigned int ProgLength;
+	unsigned int CSectLength;
 	unsigned int BaseRegister;
+	unsigned int XRegister;
 	int lineCnt;
 	
 	vector<ListingLineClass> listingLines;
 
+	void SetRegisters(ListingLineClass*);
+
 public:
 
 	ListingFileClass(fstream* rawListFile);
+
+	bool PerformInternalMemoryCheck();
 
 };

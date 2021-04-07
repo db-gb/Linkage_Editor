@@ -39,14 +39,21 @@ public:
 	bool Immediate;
 	bool Indirect;
 	bool Literal;
+	bool PCRel;
+	bool BaseRel;
+	bool Indexed;
 	unsigned int ProgCounter;
 	unsigned int LocNum;
 	int MachInstrLen; 
+	unsigned int Displacement;
 
 	ListingLineClass(string line)
 	{
 		MachInstrLen = 0;
 		ProgCounter = 0;
+		PCRel = false;
+		BaseRel = false;
+		Indexed = false;
 		ParseListingLine(line);
 		SetFlags();
 		CalcMachInstrLen();
@@ -68,6 +75,8 @@ public:
 		//////////////////////////////////////////////////////////
 
 	}
+
+
 
 
 

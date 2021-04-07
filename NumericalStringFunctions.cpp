@@ -13,6 +13,27 @@ unsigned int ConvertHexStringToNumber(string hexStr)
 	unsigned int digit;
 	unsigned int numEquivalent = 0;
 
+	// Check for negative - if the number is negative, want hex to start at all Fs
+	for (int i = 0; i < hexStr.length(); i++)
+	{
+		if (iswspace(hexStr[i]))
+			continue;
+		if (hexStr[i] == '8' || hexStr[i] == '9')
+		{
+			numEquivalent = -1;
+			break;
+		}
+		else if (toupper(hexStr[i]) >= 'A' && toupper(hexStr[i]) <= 'F')
+		{
+			numEquivalent = -1;
+			break;
+		}
+		else
+		{
+			break;
+		}
+	}
+
 	// Loop through each character in string
 	for (int i = 0; i < hexStr.length(); i++)
 	{
@@ -120,7 +141,7 @@ bool IsEmptyString(string testStr)
 void UnitTestHexStringToNumConverter()
 {
 	string testNumStr;
-	unsigned int testNum = 0;
+	int testNum = 0;
 
 	testNumStr = "a";
 	testNum = ConvertHexStringToNumber(testNumStr);

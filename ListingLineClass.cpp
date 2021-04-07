@@ -36,8 +36,7 @@ void ListingLineClass::ParseListingLine(string line)
 	// Assembled Machine Instruction/Datum (8+ cols, up to 20 cols for a datum
 	MachInstr = GrabFieldFromLine(line, lineLen, MACHINST, MACHINLEN);
 	cout << MachInstr << "\n";
-
-
+	
 }
 
 
@@ -77,7 +76,6 @@ string ListingLineClass::GrabFieldFromLine(string line, int lineLen, int startPo
 // Sets the flags internal to the object
 void ListingLineClass::SetFlags()
 {
-
 	if (Opcode[0] == '+')
 		Extended = true;
 	else
@@ -93,10 +91,42 @@ void ListingLineClass::SetFlags()
 	else
 		Indirect = false;
 
-	if (Operand[0] == '=')
+	//if (Operand[0] == '=')
+	//	Literal = true;
+	//else
+	//	Literal = false;
+
+	if (Opcode[0] == '=')
 		Literal = true;
 	else
 		Literal = false;
+
+	if ((!MachInstr.empty()) && !Extended && !Immediate && !Indirect && !Literal)
+	{
+
+		if (MachInstr[2] == '2' || MachInstr[2] == '3' || MachInstr[2] == 'A' || MachInstr[2] == 'B')
+		{
+			PCRel = true;
+			Displacement = ConvertHexStringToNumber(MachInstr.substr(3, 5));
+		}
+		else
+			PCRel = false;
+
+		if (MachInstr[2] == '4' || MachInstr[2] == '5' || MachInstr[2] == 'C' || MachInstr[2] == 'D')
+		{
+			BaseRel = true;
+		    Displacement = ConvertHexStringToNumber(MachInstr.substr(3, 5));
+		}
+		else
+			BaseRel = false;
+
+		if (MachInstr[2] == '8' || MachInstr[2] == 'A' || MachInstr[2] == 'C')
+		{
+			Indexed = true;
+		}
+		else
+			Indexed = false;
+	}
 
 }
 
@@ -164,3 +194,10 @@ void ListingLineClass::CalcProgramCounter()
 	   however, the listing files given as examples do not, so we manually add to PC */
 
 }
+
+
+
+
+
+
+
