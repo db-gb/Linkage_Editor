@@ -16,16 +16,19 @@ ListingFileClass::ListingFileClass(fstream* rawListFile)
 	while (getline(*rawListFile, line))
 	{
 		// Count lines
-		lineCnt++;		
+		lineCnt++;
 
 		// Remove when done
 		cout << line << "\n";
 
+
+
 		// Add listing line to vector
 		listingLines.push_back(ListingLineClass(line));
+
+		
+	
 	}
-
-
 	// Get the length of the control section by grabbing the last
 	// valid Program Counter value
 	for (int i = 0; i < lineCnt; i++)
@@ -33,14 +36,19 @@ ListingFileClass::ListingFileClass(fstream* rawListFile)
 		// Check if line has Loc
 		if (!IsEmptyString(listingLines[i].Loc))
 		{
+			
 			CSectLength = listingLines[i].ProgCounter;
+		}
+		if (!IsEmptyString(listingLines[i].SymbolName))
+		{
+			SymTab.push_back(SymbolTab(&listingLines[i]));
 		}
 	}
 	//ProgLength = listingLines[lineCnt - 1].ProgCounter;
 
 	/* NOTE: The solution above may seem roundabout, as we should just be able to
-	         grab the last line's PC. However, the listing files we are given contain
-			 typos where the wrong LOC is calculated. Must rely on LOC, even if wrong 
+			 grab the last line's PC. However, the listing files we are given contain
+			 typos where the wrong LOC is calculated. Must rely on LOC, even if wrong
 	*/
 
 
@@ -96,7 +104,7 @@ bool ListingFileClass::PerformInternalMemoryCheck()
 				cout << "ERROR: Attempt to reach illegal memory location at LOC: " << listingLines[i].Loc << "\n";
 				return 0;
 			}
-				   
+
 		}
 	}
 

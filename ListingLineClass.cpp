@@ -36,7 +36,7 @@ void ListingLineClass::ParseListingLine(string line)
 	// Assembled Machine Instruction/Datum (8+ cols, up to 20 cols for a datum
 	MachInstr = GrabFieldFromLine(line, lineLen, MACHINST, MACHINLEN);
 	cout << MachInstr << "\n";
-	
+
 }
 
 
@@ -115,7 +115,7 @@ void ListingLineClass::SetFlags()
 		if (MachInstr[2] == '4' || MachInstr[2] == '5' || MachInstr[2] == 'C' || MachInstr[2] == 'D')
 		{
 			BaseRel = true;
-		    Displacement = ConvertHexStringToNumber(MachInstr.substr(3, 5));
+			Displacement = ConvertHexStringToNumber(MachInstr.substr(3, 5));
 		}
 		else
 			BaseRel = false;
@@ -126,6 +126,16 @@ void ListingLineClass::SetFlags()
 		}
 		else
 			Indexed = false;
+
+		if (SymbolName == " ")
+		{
+			Label = false;
+		}
+		else
+			Label = true;
+			
+
+
 	}
 
 }
@@ -194,10 +204,4 @@ void ListingLineClass::CalcProgramCounter()
 	   however, the listing files given as examples do not, so we manually add to PC */
 
 }
-
-
-
-
-
-
 

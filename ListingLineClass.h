@@ -27,9 +27,10 @@ private:
 	string GrabFieldFromLine(string line, int lineLen, int startPos, int length);
 	void CalcMachInstrLen();
 	void CalcProgramCounter();
-	void SetFlags();
+	
 
 public:
+	void SetFlags();
 	string Loc;
 	string SymbolName;
 	string Opcode;
@@ -42,10 +43,13 @@ public:
 	bool PCRel;
 	bool BaseRel;
 	bool Indexed;
+	bool Label;
 	unsigned int ProgCounter;
 	unsigned int LocNum;
-	int MachInstrLen; 
+	int MachInstrLen;
 	unsigned int Displacement;
+
+	ListingLineClass();
 
 	ListingLineClass(string line)
 	{
@@ -75,6 +79,7 @@ public:
 		//////////////////////////////////////////////////////////
 
 	}
+
 
 
 
