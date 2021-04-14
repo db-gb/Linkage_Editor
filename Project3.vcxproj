@@ -142,11 +142,13 @@
     <ClCompile Include="ListingFileClass.cpp" />
     <ClCompile Include="ListingLineClass.cpp" />
     <ClCompile Include="NumericalStringFunctions.cpp" />
+    <ClCompile Include="SymbolTab.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ListingFileClass.h" />
     <ClInclude Include="ListingLineClass.h" />
     <ClInclude Include="NumericalStringFunctions.h" />
+    <ClInclude Include="SymbolTab.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
