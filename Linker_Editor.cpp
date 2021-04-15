@@ -45,6 +45,8 @@ int main()
 	prog.AddFileToProgram(&fileStream);
 	fileStream.close();
 
+	prog.PopulateESTAB();
+
 	// Unit Testing
 	//UnitTestHexStringToNumConverter();
 	//UnitTestDecStringToNumConverter();

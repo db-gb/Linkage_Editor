@@ -27,15 +27,16 @@ private:
 	int lineCnt;
 
 	string CSectName;
+	
+	
 	vector<SymbolTab> SymTab;
-	vector<SymbolTab*> ExtDef;
 	vector<string> ExtRef;
 	vector<ListingLineClass> listingLines;
 
 	void SetRegisters(ListingLineClass*);
 
 public:
-
+	vector<SymbolTab*> ExtDef;
 
 	ListingFileClass(fstream* rawListFile, unsigned int loadAddr);
 
@@ -58,6 +59,11 @@ public:
 	unsigned int GetCSectLen()
 	{
 		return CSectLength;
+	}
+
+	unsigned int GetCSectLoadAddr()
+	{
+		return LoadAddr;
 	}
 
 };

@@ -13,6 +13,7 @@ ListingFileClass::ListingFileClass(fstream* rawListFile, unsigned int loadAddr)
 	lineCnt = 0;
 	ExtDefExists = false;
 	ExtRefExists = false;
+	LoadAddr = loadAddr;
 
 	// Load each line of the input file into the listingLines vector
 	while (getline(*rawListFile, line))
