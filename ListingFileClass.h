@@ -14,31 +14,36 @@ using namespace std;
 class ListingFileClass
 {
 private:
-	unsigned int StartAddr;
-	unsigned int CSectLength;
-	unsigned int LoadAddr;
-	unsigned int BaseRegister;
-	unsigned int XRegister;
+	int StartAddr;
+	int CSectLength;
+	int LoadAddr;
+	int BaseRegister;
+	int XRegister;
 	bool ExtDefExists;
 	bool ExtRefExists;
 	int StartLine;
 	int ExtDefLine;
+	int ExtDefCount;
 	int ExtRefLine;
+	int ExtRefCount;
 	int lineCnt;
 
 	string CSectName;
 	
 	
 	vector<SymbolTab> SymTab;
-	vector<string> ExtRef;
-	vector<ListingLineClass> listingLines;
+	
+	
 
 	void SetRegisters(ListingLineClass*);
 
 public:
+	string FileName;
 	vector<SymbolTab*> ExtDef;
+	vector<string> ExtRef;
+	vector<ListingLineClass> listingLines;
 
-	ListingFileClass(fstream* rawListFile, unsigned int loadAddr);
+	ListingFileClass(fstream* rawListFile, string filename, int loadAddr);
 
 	void PopulateExtDef(string extDefLabels);
 
@@ -56,14 +61,34 @@ public:
 		return CSectName;
 	}
 
-	unsigned int GetCSectLen()
+	int GetCSectLen()
 	{
 		return CSectLength;
 	}
 
-	unsigned int GetCSectLoadAddr()
+	int GetCSectLoadAddr()
 	{
 		return LoadAddr;
+	}
+	
+	int GetStartAddr()
+	{
+		return StartAddr;
+	}
+
+	int GetExtDefCount()
+	{
+		return ExtDefCount;
+	}
+
+	int GetExtRefCount()
+	{
+		return ExtRefCount;
+	}
+
+	int GetNumLines()
+	{
+		return lineCnt;
 	}
 
 };

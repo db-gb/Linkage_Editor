@@ -4,13 +4,16 @@
 // Constructor for Listing File Class
 // Takes a listing file stream and parses it into a listing line vector.
 // Once parsed, obtain valus such as the control section length
-ListingFileClass::ListingFileClass(fstream* rawListFile, unsigned int loadAddr)
+ListingFileClass::ListingFileClass(fstream* rawListFile, string filename, int loadAddr)
 {
+	FileName = filename;
 	string line;
 	BaseRegister = 0;
 	StartAddr = 0;
 	CSectLength = 0;
 	lineCnt = 0;
+	ExtDefCount = 0;
+	ExtRefCount = 0;
 	ExtDefExists = false;
 	ExtRefExists = false;
 	LoadAddr = loadAddr;
@@ -223,6 +226,7 @@ void ListingFileClass::PopulateExtDef(string extDefLabels)
 					// If symbol defined in SYMTAB, add a pointer
 					// to EXTDEF
 					ExtDef.push_back(symtab);
+					ExtDefCount++;
 				}
 			}
 			lbl = "";		// reset the label to empty string
@@ -256,6 +260,7 @@ void ListingFileClass::PopulateExtRef(string extRefString)
 			if (lbl.length() > 0)
 			{
 				ExtRef.push_back(lbl);
+				ExtRefCount++;
 			}
 			lbl = "";		// reset the label to empty string
 		}

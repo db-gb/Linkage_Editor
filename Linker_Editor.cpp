@@ -26,22 +26,24 @@ using namespace std;
 int main()
 {
 	string line;
+	int i;
 	int lineCnt = 0;
+	string filename;
 
 	ListingProgramClass prog;
  
 
 	fstream fileStream;
 	fileStream.open("P2sampleAdder.lis");
-
+	filename = "P2sampleAdder";
 	//ListingFileClass listingFile2(&fileStream, 0);
-	prog.AddFileToProgram(&fileStream);
+	prog.AddFileToProgram(&fileStream, filename);
 	fileStream.close();
 
 
 	fileStream.open("P2sampleWriter.lis");
-
-	prog.AddFileToProgram(&fileStream);
+	filename = "P2sampleWriter";
+	prog.AddFileToProgram(&fileStream, filename);
 		//ListingFileClass listingFile(&fileStream, 0);
 
 	fileStream.close();
@@ -50,6 +52,7 @@ int main()
 
 	prog.PopulateESTAB();
 	prog.WriteESTABToFile();
+	prog.WriteObjectFiles();
 
 	// Unit Testing
 	//UnitTestHexStringToNumConverter();

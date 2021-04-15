@@ -32,11 +32,15 @@ public:
 		TotalProgLen = 0;
 	}
 
-	void AddFileToProgram(fstream* rawListingFile);
+	void AddFileToProgram(fstream* rawListingFile, string filename);
 
 	void PopulateESTAB();
 
 	void WriteESTABToFile();
+
+	void CreateObjectFile(ListingFileClass* file);
+
+	void WriteObjectFiles();
 
 	
 
