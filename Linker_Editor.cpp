@@ -32,6 +32,13 @@ int main()
  
 
 	fstream fileStream;
+	fileStream.open("P2sampleAdder.lis");
+
+	//ListingFileClass listingFile2(&fileStream, 0);
+	prog.AddFileToProgram(&fileStream);
+	fileStream.close();
+
+
 	fileStream.open("P2sampleWriter.lis");
 
 	prog.AddFileToProgram(&fileStream);
@@ -39,13 +46,10 @@ int main()
 
 	fileStream.close();
 
-	fileStream.open("P2sampleAdder.lis");
 
-	//ListingFileClass listingFile2(&fileStream, 0);
-	prog.AddFileToProgram(&fileStream);
-	fileStream.close();
 
 	prog.PopulateESTAB();
+	prog.WriteESTABToFile();
 
 	// Unit Testing
 	//UnitTestHexStringToNumConverter();

@@ -1,4 +1,7 @@
 #pragma once
+#include <fstream>
+#include <iostream>
+#include <iomanip>
 #include "ListingFileClass.h"
 
 using namespace std;
@@ -11,12 +14,13 @@ private:
 	{
 		string CSect = "";
 		string SymName = "";
-		unsigned int Addr = -1;
-		unsigned int Length = -1;
+		int Addr = -1;
+		int Length = -1;
 	};
 
 	int numListingFiles;
 	unsigned int TotalProgLen;
+	int numESTABEntries;
 
 	vector<ListingFileClass> listingFiles;
 	vector<ESTABline> ESTAB;
@@ -31,6 +35,8 @@ public:
 	void AddFileToProgram(fstream* rawListingFile);
 
 	void PopulateESTAB();
+
+	void WriteESTABToFile();
 
 	
 
