@@ -14,9 +14,10 @@
 #include <string>
 #include <vector>
 
-#include "NumericalStringFunctions.h"
-#include "ListingFileClass.h"
-#include "ListingLineClass.h"
+//#include "NumericalStringFunctions.h"
+//#include "ListingFileClass.h"
+//#include "ListingLineClass.h"
+#include "ListingProgramClass.h"
 
 using namespace std;
 
@@ -27,20 +28,21 @@ int main()
 	string line;
 	int lineCnt = 0;
 
-
+	ListingProgramClass prog;
  
 
 	fstream fileStream;
 	fileStream.open("P2sampleWriter.lis");
 
-	ListingFileClass listingFile(&fileStream);
+	prog.AddFileToProgram(&fileStream);
+		//ListingFileClass listingFile(&fileStream, 0);
 
 	fileStream.close();
 
 	fileStream.open("P2sampleAdder.lis");
 
-	ListingFileClass listingFile2(&fileStream);
-
+	//ListingFileClass listingFile2(&fileStream, 0);
+	prog.AddFileToProgram(&fileStream);
 	fileStream.close();
 
 	// Unit Testing

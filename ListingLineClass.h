@@ -49,8 +49,6 @@ public:
 	int MachInstrLen;
 	unsigned int Displacement;
 
-	ListingLineClass();
-
 	ListingLineClass(string line)
 	{
 		MachInstrLen = 0;

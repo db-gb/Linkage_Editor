@@ -141,12 +141,14 @@
     <ClCompile Include="Linker_Editor.cpp" />
     <ClCompile Include="ListingFileClass.cpp" />
     <ClCompile Include="ListingLineClass.cpp" />
+    <ClCompile Include="ListingProgramClass.cpp" />
     <ClCompile Include="NumericalStringFunctions.cpp" />
     <ClCompile Include="SymbolTab.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ListingFileClass.h" />
     <ClInclude Include="ListingLineClass.h" />
+    <ClInclude Include="ListingProgramClass.h" />
     <ClInclude Include="NumericalStringFunctions.h" />
     <ClInclude Include="SymbolTab.h" />
   </ItemGroup>

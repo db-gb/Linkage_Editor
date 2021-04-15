@@ -94,7 +94,7 @@ unsigned int ConvertDecStringToNumber(string decStr)
 			digit = decStr[i] - 0x30;     // Based on ASCII table
 		}
 		// ignore spaces and other whitespaces
-		else if (iswspace(decStr[i]))
+		else if (iswspace(decStr[i]) || decStr[i] == '#')
 		{
 			continue;
 		}
@@ -135,6 +135,33 @@ bool IsEmptyString(string testStr)
 	// Only white space chars found
 	return true;
 }
+
+// Helper function to parse and operand for the Label that it refers to.
+// Eliminates leading space, and grabs the string up to the first comma, 
+// in case the operand is indexed.
+string ParseOperandForLabel(string operString)
+{
+	int i = 0;
+	int operStrLen;
+	string lbl = "";
+
+	operStrLen = operString.length();
+
+	// Traverse operand until the first comma, or entire length
+	while (operString[i] != ',' && i < operStrLen)
+	{
+		// ignore # and leading space
+		if (operString[i] != '#' && !iswspace(operString[i]))
+		{
+			// add valid character to label
+			lbl.push_back(operString[i]);
+		}
+		i++;
+	}
+
+	return lbl;
+}
+
 
 
 // Unit testing

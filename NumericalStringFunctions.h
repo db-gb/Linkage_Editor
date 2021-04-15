@@ -9,6 +9,8 @@ unsigned int ConvertHexStringToNumber(string);
 
 unsigned int ConvertDecStringToNumber(string);
 
+string ParseOperandForLabel(string);
+
 bool IsEmptyString(string);
 
 void UnitTestHexStringToNumConverter();

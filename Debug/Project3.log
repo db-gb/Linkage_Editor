@@ -1,2 +1,10 @@
-﻿  SymbolTab.cpp
+﻿  Linker_Editor.cpp
+C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\SymbolTab.h(28,17): warning C4018: '<': signed/unsigned mismatch
+  ListingFileClass.cpp
+C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\SymbolTab.h(28,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\ListingFileClass.cpp(203,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\ListingFileClass.cpp(243,16): warning C4018: '<': signed/unsigned mismatch
+  ListingProgramClass.cpp
+C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\SymbolTab.h(28,17): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Project3.vcxproj -> C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\Debug\Project3.exe

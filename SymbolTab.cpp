@@ -1,15 +1,2 @@
-#include "ListingLineClass.h"
-class SymbolTab
-{
-	//void GenerateSymTab(string line)
-public:
+#include "SymbolTab.h"
 
-	void GenerateSymTab(string line) {
-		ListingLineClass LLCObject;
-
-		string Label = LLCObject.SymbolName;
-		string Loc = LLCObject.Loc;
-
-	}
-
-};
