@@ -205,3 +205,8 @@ void ListingLineClass::CalcProgramCounter()
 
 }
 
+
+void ListingLineClass::ParseOperandExpression()
+{
+	ExpressionEval = new SimpleExpressionEvaluator(Operand);
+}

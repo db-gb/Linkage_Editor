@@ -12,8 +12,10 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "NumericalStringFunctions.h"
+#include "SimpleExpressionEvaluator.h"
 
 using namespace std;
 
@@ -27,9 +29,14 @@ private:
 	string GrabFieldFromLine(string line, int lineLen, int startPos, int length);
 	void CalcMachInstrLen();
 	void CalcProgramCounter();
+	void ParseOperandExpression();
+
 	
 
 public:
+	vector<string> tokens;
+	SimpleExpressionEvaluator* ExpressionEval;
+
 	void SetFlags();
 	string Loc;
 	string SymbolName;
@@ -61,6 +68,7 @@ public:
 		CalcMachInstrLen();
 		LocNum = ConvertHexStringToNumber(Loc);
 		CalcProgramCounter();
+		ParseOperandExpression();
 
 
 		// Remove when done//////////////////////////////////////

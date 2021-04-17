@@ -11,8 +11,8 @@
 0013             ADD      TABLE2,X                 1BC000
 0016             TIX      COUNT                    2F2000
 0019             JLT      LOOP                     3B2FF3
-001C            +STA      TOTAL                    0F100003
-0020             LDT      TOTAL                    772000
+001C            +STA      TOTAL+TABLE              0F100003
+0020             LDT      TABLE-TABLE2             772000
 0023    TOTAL    RESW     1
 0026    LEN      WORD     X'02C                    00002C
                  END

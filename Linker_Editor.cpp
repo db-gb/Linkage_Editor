@@ -33,24 +33,24 @@ int main()
 	ListingProgramClass prog;
  
 
-	fstream fileStream;
-	fileStream.open("P2sampleAdder.lis");
-	filename = "P2sampleAdder";
+	//fstream fileStream;
+	//fileStream.open("P2sampleAdder.lis");
+	filename = "P2sampleAdder.lis";
 	//ListingFileClass listingFile2(&fileStream, 0);
-	prog.AddFileToProgram(&fileStream, filename);
-	fileStream.close();
+	prog.AddFileToProgram(/*&fileStream,*/ filename);
+	//fileStream.close();
 
 
-	fileStream.open("P2sampleWriter.lis");
-	filename = "P2sampleWriter";
-	prog.AddFileToProgram(&fileStream, filename);
+	//fileStream.open("P2sampleWriter.lis");
+	filename = "P2sampleWriter.lis";
+	prog.AddFileToProgram(/*&fileStream, */ filename);
 		//ListingFileClass listingFile(&fileStream, 0);
 
-	fileStream.close();
+	//fileStream.close();
 
 
 
-	prog.PopulateESTAB();
+	//prog.PopulateESTAB();
 	prog.WriteESTABToFile();
 	prog.WriteObjectFiles();
 

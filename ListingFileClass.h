@@ -9,6 +9,7 @@
 #include "ListingLineClass.h"
 #include "SymbolTab.h"
 
+
 using namespace std;
 
 class ListingFileClass
@@ -27,6 +28,7 @@ private:
 	int ExtRefLine;
 	int ExtRefCount;
 	int lineCnt;
+	int EndLine;
 
 	string CSectName;
 	
@@ -42,6 +44,8 @@ public:
 	vector<SymbolTab*> ExtDef;
 	vector<string> ExtRef;
 	vector<ListingLineClass> listingLines;
+	bool EndRecordSpecified;
+	int EndRecord;
 
 	ListingFileClass(fstream* rawListFile, string filename, int loadAddr);
 

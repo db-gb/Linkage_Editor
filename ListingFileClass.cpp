@@ -59,6 +59,10 @@ ListingFileClass::ListingFileClass(fstream* rawListFile, string filename, int lo
 		{
 			StartLine = i;
 		}
+		if (ParseOperandForLabel(listingLines[i].Opcode) == "END")
+		{
+			EndLine = i;
+		}
 	}
 
 	CSectName = ParseOperandForLabel(listingLines[StartLine].SymbolName);
@@ -73,6 +77,11 @@ ListingFileClass::ListingFileClass(fstream* rawListFile, string filename, int lo
 		PopulateExtDef(listingLines[ExtDefLine].Operand);
 	}
 
+	if (ParseOperandForLabel(listingLines[EndLine].Operand) != "")
+	{
+		EndRecordSpecified = true;
+		EndRecord = FindSymbolLoc(ParseOperandForLabel(listingLines[EndLine].Operand));
+	}
 
 	//ProgLength = listingLines[lineCnt - 1].ProgCounter;
 

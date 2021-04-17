@@ -143,6 +143,7 @@
     <ClCompile Include="ListingLineClass.cpp" />
     <ClCompile Include="ListingProgramClass.cpp" />
     <ClCompile Include="NumericalStringFunctions.cpp" />
+    <ClCompile Include="SimpleExpressionEvaluator.cpp" />
     <ClCompile Include="SymbolTab.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="ListingLineClass.h" />
     <ClInclude Include="ListingProgramClass.h" />
     <ClInclude Include="NumericalStringFunctions.h" />
+    <ClInclude Include="SimpleExpressionEvaluator.h" />
     <ClInclude Include="SymbolTab.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,5 +1,6 @@
 ﻿  ListingProgramClass.cpp
 C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\SymbolTab.h(28,17): warning C4018: '<': signed/unsigned mismatch
-C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\ListingProgramClass.cpp(175,71): warning C4018: '>=': signed/unsigned mismatch
-C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\ListingProgramClass.cpp(98,9): warning C4101: 'placeHolder': unreferenced local variable
+C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\ListingProgramClass.cpp(78,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\ListingProgramClass.cpp(202,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\ListingProgramClass.cpp(305,6): warning C4101: 'lineLoc': unreferenced local variable
   Project3.vcxproj -> C:\Users\danie\Documents\SDSU\CS_530\Assignment_2\GitHub\Debug\Project3.exe
